@@ -26,12 +26,15 @@ const topics = [
         ]},
         { type: 'heading', content: 'Komponen Utama FTTH' },
         { type: 'list', items: [
-          'OLT (Optical Line Terminal) - Di sisi provider (CO)',
-          'ODN (Optical Distribution Network) - Jaringan distribusi optik',
-          'Splitter - Membagi sinyal optik 1:N',
-          'ODC/ODP - Kabinet dan titik distribusi',
-          'ONT/ONU - Perangkat di sisi pelanggan',
-          'Drop Cable - Kabel dari ODP ke rumah pelanggan',
+          'OLT (Optical Line Terminal) Ada di sisi provider/CO (Central Office). Berfungsi mengirim sinyal optik ke banyak pelanggan sekaligus lewat 1 port PON.',
+          'ODN (Optical Distribution Network) - Untuk seluruh jaringan distribusi optik pasif antara OLT dan ONT (mencakup kabel feeder, splitter, ODC, ODP, drop cable semuanya). Jadi ODN bukan 1 alat, tapi keseluruhan sistem distribusinya.',
+          'Splitter - Alat pasif (tanpa listrik) yang membagi 1 sinyal optik jadi banyak (1:8, 1:16, 1:32, 1:64). Karena pasif, makanya disebut PON (Passive Optical Network).',
+          { label: 'ODC/ODP', children: [
+            'ODC (Optical Distribution Cabinet) — kabinet lebih besar, biasa tempat splitter tahap 1, kapasitas lebih banyak',
+            'ODP (Optical Distribution Point) — titik distribusi lebih kecil dekat pelanggan (biasa di tiang), tempat splitter tahap 2 atau titik terminasi buat drop cable ke rumah-rumah',
+          ]},
+          'ONT/ONU - Perangkat di rumah pelanggan yang convert sinyal cahaya jadi data digital (Ethernet/WiFi). ONT dan ONU sering dianggap sama, bedanya ONU biasa butuh device tambahan (NTU), sedangkan ONT udah all-in-one.',
+          'Drop Cable - kabel terakhir dari ODP masuk ke rumah pelanggan.',
         ]},
         { type: 'info', content: 'FTTH adalah standar jaringan akses masa depan. Banyak negara telah beralih dari tembaga ke fiber untuk memenuhi kebutuhan bandwidth yang terus meningkat.', variant: 'success' },
       ]
@@ -223,7 +226,7 @@ function FTTH() {
   return (
     <div>
       <div className="section-intro">
-        <h2>FTTH 🏡</h2>
+        <h2>FTTH</h2>
         <p>Dokumentasi lengkap tentang Fiber to The Home, arsitektur, perangkat, instalasi, dan troubleshooting.</p>
       </div>
 

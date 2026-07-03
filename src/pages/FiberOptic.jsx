@@ -238,7 +238,7 @@ function FiberOptic() {
   return (
     <div>
       <div className="section-intro">
-        <h2>Fiber Optic 💡</h2>
+        <h2>Fiber Optic</h2>
         <p>Dokumentasi lengkap tentang teknologi serat optik, instalasi, dan perawatannya.</p>
       </div>
 

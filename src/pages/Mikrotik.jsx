@@ -99,7 +99,6 @@ const topics = [
           ['OSPF', 'Link State', 'Jaringan enterprise/ISP skala menengah'],
           ['RIP', 'Distance Vector', 'Jaringan kecil/sederhana'],
           ['BGP', 'Path Vector', 'ISP dan koneksi antar AS'],
-          ['MME', 'Mesh', 'Jaringan wireless mesh'],
         ]},
         { type: 'heading', content: 'Konfigurasi OSPF' },
         { type: 'code', content: '/routing ospf instance add name=default router-id=1.1.1.1\n/routing ospf area add instance=default area=backbone\n/routing ospf interface add interface=ether2 area=backbone\n/routing ospf network add network=192.168.1.0/24 area=backbone' },
@@ -136,6 +135,7 @@ const topics = [
     title: 'Bandwidth Management',
     content: {
       sections: [
+        { type: 'paragraph', content: 'Bandwidth Management pada Mikrotik digunakan untuk mengatur dan membatasi kecepatan akses internet setiap client agar penggunaan bandwidth menjadi adil dan optimal. RouterOS menyediakan beberapa metode seperti Simple Queue, Queue Tree, dan PCQ (Per Connection Queue) yang dapat disesuaikan dengan kebutuhan jaringan.' },
         { type: 'heading', content: 'Simple Queue' },
         { type: 'code', content: '/queue simple add name=client1 target=192.168.1.10/32 \\\n   max-limit=10M/10M' },
         { type: 'heading', content: 'Queue Tree' },
@@ -201,7 +201,7 @@ function Mikrotik() {
   return (
     <div>
       <div className="section-intro">
-        <h2>Mikrotik 🔧</h2>
+        <h2>Mikrotik</h2>
         <p>Dokumentasi lengkap tentang konfigurasi dan administrasi perangkat Mikrotik.</p>
       </div>
 

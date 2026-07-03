@@ -3,49 +3,45 @@ import React, { useState, useEffect } from 'react'
 const navSections = [
   {
     title: 'Beranda',
-    icon: '🏠',
     items: [
-      { label: 'Home', id: 'home', icon: '📌' },
+      { label: 'Home', id: 'home' },
     ]
   },
   {
     title: 'Mikrotik',
-    icon: '🔧',
     items: [
-      { label: 'Pengenalan', id: 'mikrotik-pengenalan', icon: '📖' },
-      { label: 'Konfigurasi Dasar', id: 'mikrotik-konfigurasi-dasar', icon: '⚙️' },
-      { label: 'Firewall & NAT', id: 'mikrotik-firewall-nat', icon: '🛡️' },
-      { label: 'Routing', id: 'mikrotik-routing', icon: '🌐' },
-      { label: 'Wireless', id: 'mikrotik-wireless', icon: '📡' },
-      { label: 'Bandwidth Management', id: 'mikrotik-bandwidth-management', icon: '📊' },
-      { label: 'VPN', id: 'mikrotik-vpn', icon: '🔒' },
-      { label: 'Troubleshooting', id: 'mikrotik-troubleshooting', icon: '🔍' },
+      { label: 'Pengenalan Mikrotik', id: 'mikrotik-pengenalan' },
+      { label: 'Konfigurasi Dasar', id: 'mikrotik-konfigurasi-dasar' },
+      { label: 'Firewall & NAT', id: 'mikrotik-firewall-nat' },
+      { label: 'Routing', id: 'mikrotik-routing' },
+      { label: 'Wireless', id: 'mikrotik-wireless' },
+      { label: 'Bandwidth Management', id: 'mikrotik-bandwidth-management' },
+      { label: 'VPN', id: 'mikrotik-vpn' },
+      { label: 'Troubleshooting', id: 'mikrotik-troubleshooting' },
     ]
   },
   {
     title: 'Fiber Optic',
-    icon: '💡',
     items: [
-      { label: 'Pengenalan', id: 'fiber-pengenalan', icon: '📖' },
-      { label: 'Jenis Kabel', id: 'fiber-jenis-kabel', icon: '🔌' },
-      { label: 'Komponen Jaringan', id: 'fiber-komponen', icon: '🧩' },
-      { label: 'Instalasi', id: 'fiber-instalasi', icon: '🔧' },
-      { label: 'Splicing & Connector', id: 'fiber-splicing', icon: '🔗' },
-      { label: 'Pengukuran & Testing', id: 'fiber-pengukuran', icon: '📏' },
-      { label: 'Perawatan', id: 'fiber-perawatan', icon: '🧹' },
+      { label: 'Pengenalan Fiber Optic', id: 'fiber-pengenalan' },
+      { label: 'Jenis Kabel', id: 'fiber-jenis-kabel' },
+      { label: 'Komponen Jaringan', id: 'fiber-komponen' },
+      { label: 'Instalasi', id: 'fiber-instalasi' },
+      { label: 'Splicing & Connector', id: 'fiber-splicing' },
+      { label: 'Pengukuran & Testing', id: 'fiber-pengukuran' },
+      { label: 'Perawatan', id: 'fiber-perawatan' },
     ]
   },
   {
     title: 'FTTH',
-    icon: '🏡',
     items: [
-      { label: 'Pengenalan', id: 'ftth-pengenalan', icon: '📖' },
-      { label: 'Arsitektur Jaringan', id: 'ftth-arsitektur', icon: '🏗️' },
-      { label: 'OLT & ONT', id: 'ftth-perangkat', icon: '📦' },
-      { label: 'Splitter & ODP', id: 'ftth-splitter-odp', icon: '🔀' },
-      { label: 'Desain Jaringan', id: 'ftth-desain', icon: '📐' },
-      { label: 'Instalasi ONT', id: 'ftth-instalasi-ont', icon: '🔨' },
-      { label: 'Troubleshooting', id: 'ftth-troubleshooting', icon: '🔍' },
+      { label: 'Pengenalan FTTH', id: 'ftth-pengenalan' },
+      { label: 'Arsitektur Jaringan', id: 'ftth-arsitektur' },
+      { label: 'OLT & ONT', id: 'ftth-perangkat' },
+      { label: 'Splitter & ODP', id: 'ftth-splitter-odp' },
+      { label: 'Desain Jaringan', id: 'ftth-desain' },
+      { label: 'Instalasi ONT', id: 'ftth-instalasi-ont' },
+      { label: 'Troubleshooting', id: 'ftth-troubleshooting' },
     ]
   }
 ]
@@ -94,14 +90,13 @@ function Sidebar() {
   return (
     <div className="sidebar" id="sidebar">
       <div className="sidebar-header">
-        <h1>TechDocs</h1>
+        <h1>NetDocs</h1>
         <p>Mikrotik • Fiber Optic • FTTH</p>
       </div>
       <nav className="sidebar-nav">
         {navSections.map((section, idx) => (
           <div className="nav-section" key={idx}>
             <div className="nav-section-title">
-              <span className="nav-section-icon">{section.icon}</span>
               {section.title}
             </div>
             {section.items.map((item, itemIdx) => (
@@ -111,7 +106,6 @@ function Sidebar() {
                 href={`#${item.id}`}
                 onClick={(e) => handleClick(e, item.id)}
               >
-                <span className="nav-item-icon">{item.icon}</span>
                 {item.label}
               </a>
             ))}

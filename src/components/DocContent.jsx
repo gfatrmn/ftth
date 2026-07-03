@@ -11,7 +11,27 @@ function DocContent({ title, sections }) {
           {section.type === 'list' && (
             <ul>
               {section.items.map((item, i) => (
-                <li key={i}>{item}</li>
+                typeof item === 'object' && item.children ? (
+                  <li key={i} style={{ marginBottom: '8px' }}>
+                    <span style={{ color: 'inherit' }}>{item.label}</span>
+                    <ul style={{ paddingLeft: '24px', marginTop: '4px', marginBottom: '4px' }}>
+                      {item.children.map((child, j) => (
+                        <li key={j}>{child}</li>
+                      ))}
+                    </ul>
+                  </li>
+                ) : (
+                  <li key={i}>{item}</li>
+                )
+              ))}
+            </ul>
+          )}
+          {section.type === 'nested-list' && (
+            <ul style={{ paddingLeft: '32px', listStyle: 'none' }}>
+              {section.items.map((item, i) => (
+                <li key={i} style={{ marginBottom: '8px' }}>
+                  <strong>{item.label}</strong> {item.content}
+                </li>
               ))}
             </ul>
           )}
