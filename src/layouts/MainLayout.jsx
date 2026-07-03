@@ -1,9 +1,8 @@
 import React, { useState } from 'react'
-import { Outlet } from 'react-router-dom'
 import Sidebar from '../components/Sidebar'
 import Navbar from '../components/Navbar'
 
-function MainLayout() {
+function MainLayout({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false)
 
   const toggleSidebar = () => setSidebarOpen(!sidebarOpen)
@@ -11,11 +10,12 @@ function MainLayout() {
 
   return (
     <div className="app-layout">
+      <div className={`sidebar-overlay${sidebarOpen ? ' visible' : ''}`} onClick={closeSidebar} />
       <Sidebar isOpen={sidebarOpen} onClose={closeSidebar} />
       <main className="main-content">
         <Navbar onMenuToggle={toggleSidebar} />
         <div className="content-area">
-          <Outlet />
+          {children}
         </div>
       </main>
     </div>

@@ -26,9 +26,8 @@ const sectionTitles = {
   'ftth-troubleshooting': 'FTTH - Troubleshooting',
 }
 
-function Navbar() {
+function Navbar({ onMenuToggle }) {
   const [activeSection, setActiveSection] = useState('home')
-  const [sidebarOpen, setSidebarOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -59,15 +58,10 @@ function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
-  const toggleSidebar = () => {
-    setSidebarOpen(!sidebarOpen)
-    document.getElementById('sidebar')?.classList.toggle('open')
-  }
-
   return (
     <header className="top-navbar">
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-        <button className="menu-toggle" onClick={toggleSidebar}>
+        <button className="menu-toggle" onClick={onMenuToggle}>
           ☰
         </button>
         <span className="page-title">

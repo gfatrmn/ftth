@@ -46,7 +46,7 @@ const navSections = [
   }
 ]
 
-function Sidebar() {
+function Sidebar({ isOpen, onClose }) {
   const [activeId, setActiveId] = useState('home')
 
   useEffect(() => {
@@ -85,10 +85,13 @@ function Sidebar() {
     if (el) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
+    if (onClose) onClose()
   }
 
   return (
-    <div className="sidebar" id="sidebar">
+    <>
+    <div className={`sidebar${isOpen ? ' open' : ''}`} id="sidebar">
+      {isOpen && <button className="sidebar-close" onClick={onClose}>&times;</button>}
       <div className="sidebar-header">
         <h1>NetDocs</h1>
         <p>Mikrotik • Fiber Optic • FTTH</p>
@@ -113,6 +116,7 @@ function Sidebar() {
         ))}
       </nav>
     </div>
+    </>
   )
 }
 
