@@ -395,10 +395,33 @@ img {
 }
 
 /* ===== Table ===== */
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 0 0 16px 0;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.table-wrapper::-webkit-scrollbar {
+  height: 6px;
+}
+
+.table-wrapper::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 3px;
+}
+
+.table-wrapper::-webkit-scrollbar-track {
+  background: #f1f5f9;
+  border-radius: 3px;
+}
+
 .doc-content table {
   width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 0;
 }
 
 .doc-content th {
@@ -416,6 +439,29 @@ img {
   border: 1px solid var(--border);
   font-size: 0.85rem;
   color: var(--text-secondary);
+}
+
+/* Sticky first column for better table readability */
+.doc-content table thead th:first-child,
+.doc-content table tbody td:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 2;
+  border-right: 2px solid #94a3b8;
+}
+
+.doc-content table thead th:first-child {
+  background: #e8ecf2;
+  z-index: 3;
+}
+
+.doc-content table tbody td:first-child {
+  background: #ffffff;
+  font-weight: 500;
+}
+
+.doc-content tbody tr:nth-child(even) td:first-child {
+  background: #f4f6f8;
 }
 
 .doc-content tr:nth-child(even) {
@@ -731,7 +777,7 @@ button, a, .nav-item, .doc-card, .tech-card {
 @media (max-width: 768px) {
   :root {
     --sidebar-width: 260px;
-    --header-height: 48px;
+    --header-height: 52px;
   }
 
   .sidebar {
@@ -845,18 +891,15 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   /* ===== Table Horizontal Scroll on Mobile ===== */
   .table-wrapper {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     margin: 0 -4px 16px -4px;
-    padding: 0 4px;
     width: calc(100% + 8px);
+    border-radius: 6px;
   }
 
   .doc-content table {
     white-space: nowrap;
     font-size: 0.78rem;
     min-width: 100%;
-    width: auto;
   }
 
   .doc-content th,
@@ -865,29 +908,18 @@ button, a, .nav-item, .doc-card, .tech-card {
     min-width: 100px;
   }
 
-  .doc-content table thead th:first-child,
-  .doc-content table tbody td:first-child {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-  }
-
-  .doc-content table thead th:first-child {
-    background: #f1f5f9;
-    z-index: 2;
-  }
-
-  .doc-content tbody tr:nth-child(even) {
-    background: #f8fafc;
-  }
-
   .table-wrapper::-webkit-scrollbar {
-    height: 4px;
+    height: 5px;
   }
 
   .table-wrapper::-webkit-scrollbar-thumb {
-    background: #cbd5e1;
-    border-radius: 2px;
+    background: #94a3b8;
+    border-radius: 3px;
+  }
+
+  .table-wrapper::-webkit-scrollbar-track {
+    background: #e2e8f0;
+    border-radius: 3px;
   }
 
   /* ===== Info Box Mobile ===== */
@@ -983,7 +1015,7 @@ button, a, .nav-item, .doc-card, .tech-card {
 /* ===== Small Mobile (max-width: 480px) ===== */
 @media (max-width: 480px) {
   :root {
-    --header-height: 44px;
+    --header-height: 48px;
   }
 
   .content-area {
