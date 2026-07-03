@@ -60,7 +60,7 @@ function Navbar({ onMenuToggle }) {
 
   return (
     <header className="top-navbar">
-      <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+      <div className="navbar-left">
         <button className="menu-toggle" onClick={onMenuToggle}>
           ☰
         </button>

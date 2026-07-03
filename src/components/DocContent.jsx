@@ -49,24 +49,26 @@ function DocContent({ title, sections }) {
             </div>
           )}
           {section.type === 'table' && (
-            <table>
-              <thead>
-                <tr>
-                  {section.headers.map((header, i) => (
-                    <th key={i}>{header}</th>
-                  ))}
-                </tr>
-              </thead>
-              <tbody>
-                {section.rows.map((row, i) => (
-                  <tr key={i}>
-                    {row.map((cell, j) => (
-                      <td key={j}>{cell}</td>
+            <div className="table-wrapper">
+              <table>
+                <thead>
+                  <tr>
+                    {section.headers.map((header, i) => (
+                      <th key={i}>{header}</th>
                     ))}
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {section.rows.map((row, i) => (
+                    <tr key={i}>
+                      {row.map((cell, j) => (
+                        <td key={j}>{cell}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           )}
         </div>
       ))}

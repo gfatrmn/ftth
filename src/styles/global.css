@@ -177,6 +177,15 @@ img {
   position: sticky;
   top: 0;
   z-index: 50;
+  gap: 8px;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: 1;
+  min-width: 0;
 }
 
 .page-title {
@@ -186,7 +195,8 @@ img {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  max-width: 280px;
+  flex: 1;
+  min-width: 0;
 }
 
 .navbar-actions {
@@ -767,7 +777,6 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .page-title {
     font-size: 0.9rem;
-    max-width: 200px;
   }
 
   .content-area {
@@ -840,15 +849,14 @@ button, a, .nav-item, .doc-card, .tech-card {
     -webkit-overflow-scrolling: touch;
     margin: 0 -4px 16px -4px;
     padding: 0 4px;
+    width: calc(100% + 8px);
   }
 
   .doc-content table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
     white-space: nowrap;
     font-size: 0.78rem;
     min-width: 100%;
+    width: auto;
   }
 
   .doc-content th,
@@ -861,7 +869,6 @@ button, a, .nav-item, .doc-card, .tech-card {
   .doc-content table tbody td:first-child {
     position: sticky;
     left: 0;
-    background: inherit;
     z-index: 1;
   }
 
@@ -872,6 +879,15 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .doc-content tbody tr:nth-child(even) {
     background: #f8fafc;
+  }
+
+  .table-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .table-wrapper::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 2px;
   }
 
   /* ===== Info Box Mobile ===== */
@@ -1044,7 +1060,6 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .page-title {
     font-size: 0.82rem;
-    max-width: 150px;
   }
 
   .home-hero h1 {
@@ -1116,7 +1131,6 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .page-title {
     font-size: 0.75rem;
-    max-width: 120px;
   }
 
   .home-hero h1 {
