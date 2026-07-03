@@ -32,18 +32,30 @@ function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = document.querySelectorAll('section[id]')
+      const allIds = [
+        'home',
+        'mikrotik-pengenalan', 'mikrotik-konfigurasi-dasar', 'mikrotik-firewall-nat', 'mikrotik-routing',
+        'mikrotik-wireless', 'mikrotik-bandwidth-management', 'mikrotik-vpn', 'mikrotik-troubleshooting',
+        'fiber-pengenalan', 'fiber-jenis-kabel', 'fiber-komponen', 'fiber-instalasi',
+        'fiber-splicing', 'fiber-pengukuran', 'fiber-perawatan',
+        'ftth-pengenalan', 'ftth-arsitektur', 'ftth-perangkat', 'ftth-splitter-odp',
+        'ftth-desain', 'ftth-instalasi-ont', 'ftth-troubleshooting'
+      ]
       let current = 'home'
-      sections.forEach((section) => {
-        const top = section.offsetTop - 100
-        if (window.scrollY >= top) {
-          current = section.id
+      allIds.forEach((id) => {
+        const el = document.getElementById(id)
+        if (el) {
+          const top = el.offsetTop - 120
+          if (window.scrollY >= top) {
+            current = id
+          }
         }
       })
       setActiveSection(current)
     }
 
     window.addEventListener('scroll', handleScroll)
+    handleScroll()
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -63,10 +75,6 @@ function Navbar() {
         </span>
       </div>
       <div className="navbar-actions">
-        <div className="search-box">
-          <span>🔍</span>
-          <input type="text" placeholder="Cari dokumentasi..." />
-        </div>
       </div>
     </header>
   )

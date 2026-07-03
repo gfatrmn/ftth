@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const navSections = [
   {
@@ -12,7 +12,7 @@ const navSections = [
     title: 'Mikrotik',
     icon: '🔧',
     items: [
-      { label: 'Pengenalan', id: 'mikrotik', icon: '📖' },
+      { label: 'Pengenalan', id: 'mikrotik-pengenalan', icon: '📖' },
       { label: 'Konfigurasi Dasar', id: 'mikrotik-konfigurasi-dasar', icon: '⚙️' },
       { label: 'Firewall & NAT', id: 'mikrotik-firewall-nat', icon: '🛡️' },
       { label: 'Routing', id: 'mikrotik-routing', icon: '🌐' },
@@ -26,7 +26,7 @@ const navSections = [
     title: 'Fiber Optic',
     icon: '💡',
     items: [
-      { label: 'Pengenalan', id: 'fiber-optic', icon: '📖' },
+      { label: 'Pengenalan', id: 'fiber-pengenalan', icon: '📖' },
       { label: 'Jenis Kabel', id: 'fiber-jenis-kabel', icon: '🔌' },
       { label: 'Komponen Jaringan', id: 'fiber-komponen', icon: '🧩' },
       { label: 'Instalasi', id: 'fiber-instalasi', icon: '🔧' },
@@ -39,7 +39,7 @@ const navSections = [
     title: 'FTTH',
     icon: '🏡',
     items: [
-      { label: 'Pengenalan', id: 'ftth', icon: '📖' },
+      { label: 'Pengenalan', id: 'ftth-pengenalan', icon: '📖' },
       { label: 'Arsitektur Jaringan', id: 'ftth-arsitektur', icon: '🏗️' },
       { label: 'OLT & ONT', id: 'ftth-perangkat', icon: '📦' },
       { label: 'Splitter & ODP', id: 'ftth-splitter-odp', icon: '🔀' },
@@ -51,6 +51,38 @@ const navSections = [
 ]
 
 function Sidebar() {
+  const [activeId, setActiveId] = useState('home')
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const allIds = ['home']
+      navSections.forEach(section => {
+        section.items.forEach(item => {
+          if (item.id !== 'home') allIds.push(item.id)
+        })
+      })
+
+      const scrollPos = window.scrollY + 130
+
+      let current = 'home'
+      for (const id of allIds) {
+        const el = document.getElementById(id)
+        if (el) {
+          const rect = el.getBoundingClientRect()
+          const top = rect.top + window.scrollY
+          if (scrollPos >= top) {
+            current = id
+          }
+        }
+      }
+      setActiveId(current)
+    }
+
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    handleScroll()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
   const handleClick = (e, id) => {
     e.preventDefault()
     const el = document.getElementById(id)
@@ -75,7 +107,7 @@ function Sidebar() {
             {section.items.map((item, itemIdx) => (
               <a
                 key={itemIdx}
-                className="nav-item"
+                className={'nav-item' + (activeId === item.id ? ' active' : '')}
                 href={`#${item.id}`}
                 onClick={(e) => handleClick(e, item.id)}
               >
