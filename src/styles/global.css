@@ -737,13 +737,17 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-content table {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .doc-content th,
   .doc-content td {
     padding: 10px 12px;
-    font-size: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .doc-content p, .doc-content li {
+    font-size: 0.95rem;
   }
 
   .content-area {
@@ -755,7 +759,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .section-intro h2 {
-    font-size: 1.35rem;
+    font-size: 1.4rem;
   }
 
   .cards-grid {
@@ -813,7 +817,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .page-title {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
 
   .content-area {
@@ -830,7 +834,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-card h3 {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 
   .home-hero {
@@ -838,11 +842,11 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .home-hero h1 {
-    font-size: 1.3rem;
+    font-size: 1.4rem;
   }
 
   .home-hero p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     padding: 0 8px;
   }
 
@@ -854,18 +858,18 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .doc-content h3 {
-    font-size: 1rem;
+    font-size: 1.1rem;
     margin-top: 16px;
     margin-bottom: 8px;
   }
 
   .doc-content p,
   .doc-content li {
-    font-size: 0.85rem;
+    font-size: 0.92rem;
     line-height: 1.6;
   }
 
@@ -889,7 +893,7 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .doc-content table {
     white-space: nowrap;
-    font-size: 1rem;
+    font-size: 0.9rem;
     min-width: 100%;
   }
 
@@ -897,7 +901,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   .doc-content td {
     padding: 14px 12px;
     min-width: 100px;
-    font-size: 1rem;
+    font-size: 0.9rem;
   }
 
   .table-wrapper::-webkit-scrollbar {
@@ -1020,32 +1024,32 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-content h2 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .doc-content h3 {
-    font-size: 0.92rem;
+    font-size: 1rem;
   }
 
   .doc-content p,
   .doc-content li {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .doc-content table {
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
   .doc-content th,
   .doc-content td {
     padding: 12px 10px;
     min-width: 80px;
-    font-size: 1rem;
+    font-size: 0.92rem;
   }
 
   .doc-content pre {
     padding: 10px;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
   }
 
   .overview-section {
@@ -1071,11 +1075,11 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-card h3 {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .doc-card p {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
   }
 
   .top-navbar {
@@ -1084,23 +1088,23 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .page-title {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
   }
 
   .home-hero h1 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
 
   .home-hero p {
-    font-size: 0.82rem;
+    font-size: 0.9rem;
   }
 
   .section-intro h2 {
-    font-size: 1.05rem;
+    font-size: 1.15rem;
   }
 
   .section-intro p {
-    font-size: 0.8rem;
+    font-size: 0.88rem;
   }
 
   .info-box {
@@ -1108,7 +1112,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .info-box p {
-    font-size: 0.78rem;
+    font-size: 0.85rem;
   }
 
   .tech-card {
@@ -1147,19 +1151,23 @@ button, a, .nav-item, .doc-card, .tech-card {
     font-size: 0.95rem;
   }
 
+  .doc-content h2 {
+    font-size: 1rem;
+  }
+
   .doc-content th,
   .doc-content td {
     padding: 10px 8px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     min-width: 70px;
   }
 
   .page-title {
-    font-size: 0.75rem;
+    font-size: 0.82rem;
   }
 
   .home-hero h1 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
 
   .top-navbar {
