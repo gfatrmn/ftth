@@ -37,6 +37,8 @@ const navSections = [
     items: [
       { label: 'Pengenalan FTTH', id: 'ftth-pengenalan' },
       { label: 'Arsitektur Jaringan', id: 'ftth-arsitektur' },
+      { label: 'GPON', id: 'ftth-gpon' },
+      { label: 'PPPoE', id: 'ftth-pppoe' },
       { label: 'OLT & ONT', id: 'ftth-perangkat' },
       { label: 'Splitter & ODP', id: 'ftth-splitter-odp' },
       { label: 'Desain Jaringan', id: 'ftth-desain' },

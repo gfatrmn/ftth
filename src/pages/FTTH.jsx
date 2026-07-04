@@ -1,4 +1,3 @@
-import React from 'react'
 import DocContent from '../components/DocContent'
 
 const topics = [
@@ -7,22 +6,16 @@ const topics = [
     title: 'Pengenalan FTTH',
     content: {
       sections: [
-        { type: 'paragraph', content: 'FTTH (Fiber to The Home) adalah arsitektur jaringan akses serat optik yang menghubungkan langsung dari penyedia layanan (provider) ke rumah pelanggan menggunakan kabel serat optik. FTTH menyediakan koneksi internet berkecepatan tinggi hingga Gigabit per detik.' },
-        { type: 'heading', content: 'Mengapa FTTH?' },
+        { type: 'heading', content: 'Apa itu FTTH?' },
+        { type: 'paragraph', content: 'Fiber to The Home (FTTH) adalah arsitektur jaringan akses serat optik yang menghubungkan langsung dari Central Office (OLT) ke rumah pelanggan (ONT/ONU). Tidak seperti FTTB atau FTTC yang masih menggunakan tembaga di bagian akhir, FTTH menggunakan serat optik 100% sampai ke dalam rumah.' },
+        { type: 'heading', content: 'Keunggulan FTTH' },
         { type: 'list', items: [
-          'Kecepatan internet hingga 1 Gbps atau lebih',
-          'Latensi rendah, cocok untuk gaming dan streaming 4K/8K',
-          'Stabil dan tidak terpengaruh cuaca atau interferensi',
+          'Bandwidth sangat besar hingga Gigabit per detik',
+          'Latensi rendah (low latency)',
+          'Tidak terpengaruh interferensi elektromagnetik',
+          'Stabil dan handal untuk cuaca ekstrem',
+          'Mendukung triple-play (data, suara, video)',
           'Future-proof untuk kebutuhan masa depan',
-          'Simetris (upload dan download sama cepat)',
-        ]},
-        { type: 'heading', content: 'Perbandingan Teknologi Akses' },
-        { type: 'table', headers: ['Parameter', 'ADSL', 'VDSL', 'Fiber (FTTH)'], rows: [
-          ['Kecepatan max', '24 Mbps', '100 Mbps', '1+ Gbps'],
-          ['Jarak max', '5 km', '1.2 km', '20+ km'],
-          ['Media', 'Tembaga', 'Tembaga', 'Serat optik'],
-          ['Latensi', '10-50 ms', '5-20 ms', '1-5 ms'],
-          ['Stabilitas', 'Kurang stabil', 'Cukup stabil', 'Sangat stabil'],
         ]},
         { type: 'heading', content: 'Komponen Utama FTTH' },
         { type: 'list', items: [
@@ -46,12 +39,12 @@ const topics = [
     content: {
       sections: [
         { type: 'heading', content: 'Topologi Jaringan FTTH' },
-        { type: 'paragraph', content: 'FTTH umumnya menggunakan topologi Point-to-Multipoint (P2MP) dengan arsitektur GPON (Gigabit Passive Optical Network). Jaringan bersifat pasif (tidak menggunakan perangkat aktif di jalur distribusi).' },
-        { type: 'heading', content: 'Segmen Jaringan FTTH' },
-        { type: 'table', headers: ['Segmen', 'Rentang', 'Deskripsi'], rows: [
-          ['Feeder', 'CO ke ODC', 'Kabel backbone dari OLT ke ODC, biasanya 24-96 core'],
-          ['Distribusi', 'ODC ke ODP', 'Kabel distribusi ke area pelanggan, 8-24 core'],
-          ['Drop', 'ODP ke ONT', 'Kabel drop ke rumah pelanggan, 1-2 core'],
+        { type: 'paragraph', content: 'Arsitektur FTTH umumnya menggunakan topologi Point-to-Multipoint (P2MP) dengan passive optical splitter.' },
+        { type: 'paragraph', content: 'Jaringan FTTH terdiri dari beberapa segmen:' },
+        { type: 'list', items: [
+          'Feeder - Dari OLT ke ODC (Optical Distribution Cabinet)',
+          'Distribusi - Dari ODC ke ODP (Optical Distribution Point)',
+          'Drop - Dari ODP ke ONT pelanggan',
         ]},
         { type: 'heading', content: 'Arsitektur GPON' },
         { type: 'list', items: [
@@ -68,6 +61,101 @@ const topics = [
           'Active Optical Network (AON) - Menggunakan switch aktif di lapisan distribusi',
         ]},
         { type: 'info', content: 'GPON (ITU-T G.984) adalah standar FTTH yang paling banyak digunakan di dunia, mendukung kecepatan hingga 2.5 Gbps downstream dan 1.25 Gbps upstream.', variant: '' },
+      ]
+    }
+  },
+  {
+    id: 'ftth-gpon',
+    title: 'GPON (Gigabit Passive Optical Network)',
+    content: {
+      sections: [
+        { type: 'heading', content: 'Apa itu GPON?' },
+        { type: 'paragraph', content: 'GPON (Gigabit Passive Optical Network) adalah teknologi PON berbasis standar ITU-T G.984 yang menyediakan kecepatan hingga 2.5 Gbps downstream dan 1.25 Gbps upstream. GPON adalah teknologi FTTH yang paling banyak diadopsi oleh operator telekomunikasi di seluruh dunia termasuk Indonesia.' },
+        { type: 'heading', content: 'Standar GPON (ITU-T G.984.x)' },
+        { type: 'table', headers: ['Standar', 'Deskripsi'], rows: [
+          ['G.984.1', 'Arsitektur dan requirement umum GPON'],
+          ['G.984.2', 'Physical layer (PMD) — spesifikasi optik'],
+          ['G.984.3', 'Transmission Convergence (TC) layer — frame, mapping, encapsulation'],
+          ['G.984.4', 'ONT Management Control Interface (OMCI) — manajemen ONT dari OLT'],
+          ['G.984.5', 'Bandwidth upgrade — wavelength filter untuk coexisting dengan XGS-PON'],
+          ['G.984.6', 'Reach extension — GPON jarak jauh hingga 60 km'],
+          ['G.984.7', 'Long-reach GPON'],
+        ]},
+        { type: 'heading', content: 'Cara Kerja GPON' },
+        { type: 'paragraph', content: 'GPON menggunakan mekanisme downstream broadcast dan upstream TDMA (Time Division Multiple Access):' },
+        { type: 'list', items: [
+          'Downstream (OLT → ONT): Data dikirim secara broadcast ke semua ONT dengan enkripsi AES. Setiap ONT hanya memproses data yang ditujukan kepadanya berdasarkan GEM Port-ID.',
+          'Upstream (ONT → OLT): Setiap ONT mendapat timeslot dari OLT untuk mengirim data. OLT mengatur jadwal pengiriman (DBA — Dynamic Bandwidth Allocation) agar tidak terjadi tabrakan.',
+          'Wavelength: Downstream 1490 nm, Upstream 1310 nm, Video overlay 1550 nm (opsional).',
+          'Frame GPON menggunakan GEM (GPON Encapsulation Method) yang dapat membawa Ethernet, TDM, atau trafik lainnya.',
+        ]},
+        { type: 'heading', content: 'Keamanan GPON' },
+        { type: 'list', items: [
+          'AES-128 encryption untuk data downstream (wajib di GPON)',
+          'Autentikasi ONT berdasarkan Serial Number (SN) atau Password/LoID',
+          'OMCI channel terenkripsi untuk manajemen',
+          'Ploam messaging untuk control plane yang aman',
+        ]},
+        { type: 'heading', content: 'Perbandingan Teknologi PON' },
+        { type: 'table', headers: ['Teknologi', 'Standar', 'Downstream', 'Upstream', 'Split Ratio'], rows: [
+          ['GPON', 'ITU-T G.984', '2.5 Gbps', '1.25 Gbps', '1:64'],
+          ['EPON', 'IEEE 802.3ah', '1 Gbps', '1 Gbps', '1:32'],
+          ['10G-EPON', 'IEEE 802.3av', '10 Gbps', '10 Gbps / 1 Gbps', '1:128'],
+          ['XGS-PON', 'ITU-T G.9807', '10 Gbps', '10 Gbps', '1:128'],
+          ['NG-PON2', 'ITU-T G.989', '40 Gbps', '10 Gbps', '1:256'],
+        ]},
+        { type: 'info', content: 'GPON simetris (XGS-PON) mulai banyak diadopsi untuk memenuhi kebutuhan bandwidth yang semakin besar. Teknologi GPON dan XGS-PON dapat coexist di satu jaringan ODN yang sama menggunakan WDM filter.', variant: '' },
+      ]
+    }
+  },
+  {
+    id: 'ftth-pppoe',
+    title: 'PPPoE (Point-to-Point Protocol over Ethernet)',
+    content: {
+      sections: [
+        { type: 'heading', content: 'Apa itu PPPoE?' },
+        { type: 'paragraph', content: 'PPPoE (Point-to-Point Protocol over Ethernet) adalah protokol jaringan yang mengenkapsulasi PPP (Point-to-Point Protocol) di atas Ethernet. PPPoE banyak digunakan oleh ISP (termasuk layanan FTTH) untuk mengelola autentikasi, otorisasi, dan penagihan (billing) pelanggan.' },
+        { type: 'heading', content: 'Komponen PPPoE' },
+        { type: 'table', headers: ['Komponen', 'Fungsi'], rows: [
+          ['PPPoE Client', 'Perangkat pelanggan (ONT/Router) yang memulai koneksi PPPoE dengan mengirimkan username & password'],
+          ['PPPoE Server / BRAS', 'Server di sisi ISP (Broadband Remote Access Server) yang mengautentikasi dan mengelola sesi PPPoE'],
+          ['PPP Session', 'Koneksi point-to-point logis antara client dan server setelah autentikasi berhasil'],
+          ['RADIUS Server', 'Server backend untuk autentikasi, akuntansi (billing), dan manajemen bandwidth pelanggan'],
+        ]},
+        { type: 'heading', content: 'Tahapan Koneksi PPPoE' },
+        { type: 'ordered-list', items: [
+          'Discovery Stage: Client mengirim PADI (PPPoE Active Discovery Initiation) untuk mencari server',
+          'Server merespon dengan PADO (PPPoE Active Discovery Offer) yang berisi nama/nomor sesi',
+          'Client merespon PADR (PPPoE Active Discovery Request) untuk meminta koneksi',
+          'Server mengirim PADS (PPPoE Active Discovery Session-confirmation) dengan Session-ID unik',
+          'Session Stage: Koneksi PPP dimulai — LCP (Link Control Protocol) negosiasi, autentikasi PAP/CHAP, NCP (IPCP) untuk mendapatkan IP Address',
+          'Termination Stage: Koneksi diakhiri dengan PADT (PPPoE Active Discovery Terminate)',
+        ]},
+        { type: 'heading', content: 'PPP di Layer 2 / Konfigurasi PPPoE di MikroTik' },
+        { type: 'paragraph', content: 'Berikut adalah konfigurasi PPPoE Server di MikroTik (BRAS) untuk jaringan FTTH:' },
+        { type: 'heading', content: '1. Buat PPP Profile' },
+        { type: 'code', content: '/ppp profile\nadd name=ftth-profile local-address=10.10.10.1 remote-address=pppoe-pool\n  dns-server=8.8.8.8,8.8.4.4 only-one=yes' },
+        { type: 'heading', content: '2. Buat IP Pool' },
+        { type: 'code', content: '/ip pool\nadd name=pppoe-pool ranges=10.10.10.2-10.10.10.254' },
+        { type: 'heading', content: '3. Buat PPP Secret (User Pelanggan)' },
+        { type: 'code', content: '/ppp secret\nadd name=pelanggan1 password=pass123 service=pppoe profile=ftth-profile\nadd name=pelanggan2 password=pass456 service=pppoe profile=ftth-profile' },
+        { type: 'heading', content: '4. Buat PPPoE Server di Interface' },
+        { type: 'code', content: '/interface pppoe-server server\nadd interface=bridge-isp service-name=ftth authentication=pap,chap\n  default-profile=ftth-profile enabled=yes max-mtu=1492 max-mru=1492' },
+        { type: 'heading', content: '5. Queue Management (Bandwidth Limiter)' },
+        { type: 'code', content: '/queue simple\nadd name=pelanggan1 target=10.10.10.2/32 max-limit=50M/10M parent=bridge-isp\nadd name=pelanggan2 target=10.10.10.3/32 max-limit=100M/25M parent=bridge-isp' },
+        { type: 'heading', content: 'Konfigurasi PPPoE Client di ONT/Router Pelanggan' },
+        { type: 'paragraph', content: 'Berikut contoh konfigurasi PPPoE Client di MikroTik (RouterOS) di sisi pelanggan:' },
+        { type: 'code', content: '/interface pppoe-client\nadd name=pppoe-out1 interface=ether1 user=pelanggan1 password=pass123\n  service-name=ftth add-default-route=yes use-peer-dns=yes' },
+        { type: 'heading', content: 'Keuntungan PPPoE untuk ISP FTTH' },
+        { type: 'list', items: [
+          'Autentikasi per pelanggan (username & password) — keamanan lebih terjamin',
+          'Manajemen IP Address — IP bisa di-assign dinamis via pool, tidak perlu IP statis untuk semua pelanggan',
+          'Bandwidth management — setiap sesi PPPoE bisa di-limit bandwidthnya secara individual',
+          'Session control — ISP bisa memutus sesi PPPoE jarak jauh (forced disconnect)',
+          'Billing integration — PPPoE terintegrasi dengan RADIUS server untuk penagihan dan monitoring',
+          'Isolasi Layer 2 — setiap pelanggan terisolasi di sesi PPP masing-masing, tidak bisa saling akses',
+        ]},
+        { type: 'info', content: 'PPPoE menggunakan MTU 1492 (1500 - 8 byte header PPPoE). Pastikan router pelanggan menggunakan MTU yang sesuai untuk menghindari fragmentasi atau koneksi gagal.', variant: '' },
       ]
     }
   },
@@ -106,21 +194,22 @@ const topics = [
     }
   },
   {
-    id: 'ftth-splitter-odp',
+    id: 'ftth-splitter',
     title: 'Splitter & ODP',
     content: {
       sections: [
         { type: 'heading', content: 'Optical Splitter' },
-        { type: 'paragraph', content: 'Splitter optik adalah komponen pasif yang membagi satu sinyal optik menjadi beberapa sinyal dengan daya yang lebih rendah.' },
-        { type: 'table', headers: ['Tipe Splitter', 'Ratio', 'Redaman'], rows: [
-          ['1:2', '50:50', '~3.5 dB'],
-          ['1:4', '25% masing-masing', '~7 dB'],
-          ['1:8', '12.5%', '~10.5 dB'],
-          ['1:16', '6.25%', '~13.5 dB'],
-          ['1:32', '3.125%', '~16.5 dB'],
-          ['1:64', '1.56%', '~19.5 dB'],
+        { type: 'paragraph', content: 'Splitter adalah komponen pasif yang membagi daya optik dari satu serat menjadi beberapa serat output.' },
+        { type: 'table', headers: ['Tipe Splitter', 'Redaman', 'Jumlah Output'], rows: [
+          ['Splitter 1:2', '3.5 dB', '2'],
+          ['Splitter 1:4', '7 dB', '4'],
+          ['Splitter 1:8', '10.5 dB', '8'],
+          ['Splitter 1:16', '13.5 dB', '16'],
+          ['Splitter 1:32', '16.5 dB', '32'],
+          ['Splitter 1:64', '19.5 dB', '64'],
         ]},
         { type: 'heading', content: 'ODP (Optical Distribution Point)' },
+        { type: 'paragraph', content: 'ODP adalah titik distribusi optik yang menghubungkan kabel distribusi ke kabel drop pelanggan.' },
         { type: 'table', headers: ['Tipe ODP', 'Kapasitas', 'Jumlah Pelanggan'], rows: [
           ['ODP 4 port', '1:4', '4 pelanggan'],
           ['ODP 8 port', '1:8', '8 pelanggan'],
