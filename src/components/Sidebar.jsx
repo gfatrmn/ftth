@@ -96,7 +96,7 @@ function Sidebar({ isOpen, onClose }) {
       {isOpen && <button className="sidebar-close" onClick={onClose}>&times;</button>}
       <div className="sidebar-header">
         <h1>NetDocs</h1>
-        <p>Mikrotik • Fiber Optic • FTTH</p>
+        <p>Network Documentation</p>
       </div>
       <nav className="sidebar-nav">
         {navSections.map((section, idx) => (
