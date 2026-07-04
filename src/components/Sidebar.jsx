@@ -60,7 +60,7 @@ function Sidebar({ isOpen, onClose }) {
         })
       })
 
-      const scrollPos = window.scrollY + 130
+      const scrollPos = window.scrollY + 60
 
       let current = 'home'
       for (const id of allIds) {
@@ -85,7 +85,8 @@ function Sidebar({ isOpen, onClose }) {
     e.preventDefault()
     const el = document.getElementById(id)
     if (el) {
-      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+      const top = el.getBoundingClientRect().top + window.scrollY - 70
+      window.scrollTo({ top, behavior: 'smooth' })
     }
     if (onClose) onClose()
   }
@@ -98,25 +99,27 @@ function Sidebar({ isOpen, onClose }) {
         <h1>NetDocs</h1>
         <p>Network Documentation</p>
       </div>
-      <nav className="sidebar-nav">
-        {navSections.map((section, idx) => (
-          <div className="nav-section" key={idx}>
-            <div className="nav-section-title">
-              {section.title}
+      <div className="sidebar-scrollable">
+        <nav className="sidebar-nav">
+          {navSections.map((section, idx) => (
+            <div className="nav-section" key={idx}>
+              <div className="nav-section-title">
+                {section.title}
+              </div>
+              {section.items.map((item, itemIdx) => (
+                <a
+                  key={itemIdx}
+                  className={'nav-item' + (activeId === item.id ? ' active' : '')}
+                  href={`#${item.id}`}
+                  onClick={(e) => handleClick(e, item.id)}
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
-            {section.items.map((item, itemIdx) => (
-              <a
-                key={itemIdx}
-                className={'nav-item' + (activeId === item.id ? ' active' : '')}
-                href={`#${item.id}`}
-                onClick={(e) => handleClick(e, item.id)}
-              >
-                {item.label}
-              </a>
-            ))}
-          </div>
-        ))}
-      </nav>
+          ))}
+        </nav>
+      </div>
     </div>
     </>
   )
