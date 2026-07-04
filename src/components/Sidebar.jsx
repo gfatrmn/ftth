@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 
 const navSections = [
   {
@@ -50,9 +50,12 @@ const navSections = [
 
 function Sidebar({ isOpen, onClose }) {
   const [activeId, setActiveId] = useState('home')
+  const scrollLockRef = useRef(false)
 
   useEffect(() => {
     const handleScroll = () => {
+      if (scrollLockRef.current) return
+
       const allIds = ['home']
       navSections.forEach(section => {
         section.items.forEach(item => {
@@ -83,11 +86,16 @@ function Sidebar({ isOpen, onClose }) {
 
   const handleClick = (e, id) => {
     e.preventDefault()
+    setActiveId(id)
+    scrollLockRef.current = true
     const el = document.getElementById(id)
     if (el) {
-      const top = el.getBoundingClientRect().top + window.scrollY - 70
+      const top = el.getBoundingClientRect().top + window.scrollY - 80
       window.scrollTo({ top, behavior: 'smooth' })
     }
+    setTimeout(() => {
+      scrollLockRef.current = false
+    }, 600)
     if (onClose) onClose()
   }
 
