@@ -441,18 +441,8 @@ img {
   color: var(--text-secondary);
 }
 
-/* Sticky first column for better table readability */
-.doc-content table thead th:first-child,
-.doc-content table tbody td:first-child {
-  position: sticky;
-  left: 0;
-  z-index: 2;
-  border-right: 2px solid #94a3b8;
-}
-
 .doc-content table thead th:first-child {
   background: #e8ecf2;
-  z-index: 3;
 }
 
 .doc-content table tbody td:first-child {
@@ -747,7 +737,7 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-content table {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
   .doc-content th,
@@ -898,13 +888,13 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .doc-content table {
     white-space: nowrap;
-    font-size: 0.78rem;
+    font-size: 0.85rem;
     min-width: 100%;
   }
 
   .doc-content th,
   .doc-content td {
-    padding: 8px 10px;
+    padding: 10px 12px;
     min-width: 100px;
   }
 
@@ -1041,12 +1031,12 @@ button, a, .nav-item, .doc-card, .tech-card {
   }
 
   .doc-content table {
-    font-size: 0.72rem;
+    font-size: 0.82rem;
   }
 
   .doc-content th,
   .doc-content td {
-    padding: 6px 8px;
+    padding: 8px 10px;
     min-width: 80px;
   }
 
@@ -1156,8 +1146,8 @@ button, a, .nav-item, .doc-card, .tech-card {
 
   .doc-content th,
   .doc-content td {
-    padding: 4px 6px;
-    font-size: 0.68rem;
+    padding: 6px 8px;
+    font-size: 0.78rem;
     min-width: 70px;
   }
 
