@@ -40,7 +40,7 @@ const navSections = [
       { label: 'GPON', id: 'ftth-gpon' },
       { label: 'PPPoE', id: 'ftth-pppoe' },
       { label: 'OLT & ONT', id: 'ftth-perangkat' },
-      { label: 'Splitter & ODP', id: 'ftth-splitter-odp' },
+      { label: 'Splitter & ODP', id: 'ftth-splitter' },
       { label: 'Desain Jaringan', id: 'ftth-desain' },
       { label: 'Instalasi ONT', id: 'ftth-instalasi-ont' },
       { label: 'Troubleshooting', id: 'ftth-troubleshooting' },
